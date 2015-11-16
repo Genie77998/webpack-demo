@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+<div id="example">
+	<ul>
+		<li v-for="todo in todos">
+	      {{ todo.text }}
+	    </li>
+	</ul>
+	<button v-on:click="toogle">{{button}}</button>
+	<input placeholder="{{placehloder}}" v-model="message" v-on:blur="addTodo"><p>{{message ? '您输入的内容是:'+ message : '您还没有输入'}}</p>
+	<my-component></my-component>
+</div>
+</body>
+<script type="text/javascript" src="assets/common.js"></script>
+<script type="text/javascript" src="assets/main.js"></script>
+</html>
