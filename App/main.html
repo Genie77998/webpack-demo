@@ -6,16 +6,25 @@
 	<link rel="stylesheet" href="assets/main.css">
 </head>
 <body>
-<div id="example">
-	<ul>
-		<li v-for="todo in todos">
-	      {{ todo.text }}
-	    </li>
-	</ul>
-	<button v-on:click="toogle">{{button}}</button>
-	<input placeholder="{{placehloder}}" v-model="message" v-on:blur="addTodo"><p>{{message ? '您输入的内容是:'+ message : '您还没有输入'}}</p>
-	<my-component></my-component>
-</div>
+	<div id="example">
+		<ul>
+			<li v-for="todo in todos" v-if="todo.shows" :class="{ 'class-a': todo.isA, 'class-b': todo.isB }" data-index="{{ $index+1 }}">
+		      {{ todo.text }}
+		    </li>
+		</ul>
+		<button @click="toogle">{{button}}</button>
+		<input placeholder="{{placehloder}}" v-model="message" @blur="addTodo" @focus="aaaa"><p>{{message ? '您输入的内容是:'+ message : '您还没有输入'}}</p>
+		<my-component></my-component>
+	</div>
+	 <div id="app">
+	  <h1>Hello App!</h1>
+	  <p>
+	    <a v-link="{ path: '/foo' }">Go to /foo</a>
+	    <a v-link="{ path: '/foo/bar' }">Go to /foo/bar</a>
+	    <a v-link="{ path: '/foo/baz' }">Go to /foo/baz</a>
+	  </p>
+	  <router-view></router-view>
+	</div>
 </body>
 <script type="text/javascript" src="assets/common.js"></script>
 <script type="text/javascript" src="assets/main.js"></script>

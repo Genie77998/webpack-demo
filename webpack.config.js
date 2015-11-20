@@ -1,6 +1,7 @@
 var fs = require('fs');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var vue = require('vue-loader');
 //var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 var path = require('path');
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
     },
     module: {
         loaders: [
+            {test: /\.vue$/,loader: 'vue'},
             //{ test: /\.css$/, loader: 'style!css' },
             //{ test: /\.js$/, loader: 'jsx-loader?harmony'},
             { test: /\.js[x]?$/, loader: 'babel-loader' },
@@ -30,6 +32,12 @@ module.exports = {
             { test: /\.(png|jpg)$/, loader: 'url-loader?limit=88888192'},
             { test: /\.htm[l]?$/, loader: 'html-loader' }
         ]
+    },
+    vue: {
+        autoprefixer: true,
+        autoprefixer: {
+            // browsers: ['last 2 versions']
+        }
     },
     plugins: [
         //commonsPlugin,
